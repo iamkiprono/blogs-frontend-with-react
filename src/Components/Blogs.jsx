@@ -7,7 +7,7 @@ const Blogs = () => {
 
   const deletePost = async (id) => {
     try {
-      const res = await fetch(`https://blog-api-kiprono.onrender.com/${id}`, {
+      const res = await fetch(`https://blog-api-kiprono.onrender.com/blogs/${id}`, {
         method: "DELETE",
       });
       const result = await res.json();
