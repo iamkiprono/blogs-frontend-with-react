@@ -4,8 +4,12 @@ const AddBlog = () => {
   const [title, setTitle] = useState("");
   const [blog, setBlog] = useState("");
   const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false)
+  const [result, setResult] = useState("")
 
   const handleSubmit = async (e) => {
+    setLoading(true)
+    setResult("")
     e.preventDefault();
     const writtenBlog = { blog, title, image };
     const res = await fetch("https://blog-api-kiprono.onrender.com/create", {
@@ -15,8 +19,10 @@ const AddBlog = () => {
         "Content-Type": "application/json",
       },
     });
-
     const result = await res.json();
+    setLoading(false)
+    setResult(result.message)
+
     console.log(result);
   };
   return (
@@ -28,7 +34,9 @@ const AddBlog = () => {
         <textarea onChange={(e) => setBlog(e.target.value)}></textarea>
         <label>Image</label>
         <input type="text" onChange={(e) => setImage(e.target.value)} />
-        <button type="submit">Add blog</button>
+        {!loading ? 
+        <button type="submit">Add blog</button> : <button>Adding blog...</button> }
+        <div>{result}</div>
       </form>
     </div>
   );
