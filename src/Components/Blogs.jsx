@@ -2,12 +2,12 @@ import useFetch from "../Hooks/useFetch";
 import AddBlog from "./AddBlog";
 
 const Blogs = () => {
-  const { data: blogs, error } = useFetch("http://localhost:5000/blogs");
+  const { data: blogs, error } = useFetch("https://blog-api-kiprono.onrender.com/blogs");
   console.log(blogs);
 
   const deletePost = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/blogs/${id}`, {
+      const res = await fetch(`https://blog-api-kiprono.onrender.com/${id}`, {
         method: "DELETE",
       });
       const result = await res.json();

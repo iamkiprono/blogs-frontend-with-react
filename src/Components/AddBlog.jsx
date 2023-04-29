@@ -8,7 +8,7 @@ const AddBlog = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const writtenBlog = { blog, title, image };
-    const res = await fetch("http://localhost:5000/create", {
+    const res = await fetch("https://blog-api-kiprono.onrender.com/create", {
       method: "POST",
       body: JSON.stringify(writtenBlog),
       headers: {
