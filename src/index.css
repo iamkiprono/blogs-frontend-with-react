@@ -83,6 +83,14 @@ form button {
   padding: 5px;
   margin: 1rem;
 }
+.livematch-card{
+  border: 1px solid black;
+  width: 340px;
+  margin: 10px;
+}
+.livematch-card img{
+  width: 20px;
+}
 
 /* mobile screen */
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import {Link} from 'react-router-dom';
 
 const Matches = () => {
   const [matches, setMatches] = useState([]);
@@ -13,11 +14,16 @@ const Matches = () => {
   useEffect(() => {
     getLiveMatches();
   }, []);
-  return <div>
+  return <div >
     {matches.map((match) => {
         return(
-            <div key={match.id}>
+            <div className="livematch-card" key={match.id}>
+                <img src={match.homelogo} alt="" />
                 <p>{match.hometeam}</p>
+                <h1>vs</h1>
+                <img src={match.awaylogo} alt="" />
+                <p>{match.awayteam}</p>
+               <Link target="_blank" to={match.matchlink}>Watch</Link>
             </div>
         )
     })}
