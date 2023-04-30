@@ -4,7 +4,6 @@ const useFetch = (url) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
 
-
   const getData = async () => {
     try {
       const res = await fetch(url);
@@ -17,7 +16,7 @@ const useFetch = (url) => {
 
   useEffect(() => {
     getData(url);
-  },[url]);
+  }, [url]);
   return { data, error };
 };
 

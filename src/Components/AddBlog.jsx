@@ -27,6 +27,7 @@ const AddBlog = () => {
   };
   return (
     <div>
+      <h3>Add blog</h3>
       <form onSubmit={handleSubmit}>
         <label>Blog title</label>
         <input onChange={(e) => setTitle(e.target.value)} type="text" />

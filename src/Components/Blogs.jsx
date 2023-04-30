@@ -1,12 +1,12 @@
 import { useState } from "react";
 import useFetch from "../Hooks/useFetch";
-import AddBlog from "./AddBlog";
+
 
 const Blogs = () => {
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState("")
 
-  const { data: blogs, error } = useFetch(
+  const { data: blogs } = useFetch(
     "https://blog-api-kiprono.onrender.com/blogs"
   );
   console.log(blogs);
@@ -34,7 +34,7 @@ const Blogs = () => {
   return (
     <div className="blogs">
       <div className="blog-wrapper">
-      <AddBlog />
+ 
         <div>{result}</div>
         <h2>Blogs</h2>
         {blogs.length === 0
