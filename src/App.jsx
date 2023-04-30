@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import AddBlog from "./Components/AddBlog";
 import AddMatches from "./Components/AddMatches";
+import Matches from "./Components/Matches";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
           <Route path="/" element={<Blogs />} />
           <Route path="/add" element={<AddBlog />} />
           <Route path="/addmatch" element={<AddMatches />} />
+          <Route path="/livematches" element={<Matches />} />
         </Routes>
       </div>
     </Router>

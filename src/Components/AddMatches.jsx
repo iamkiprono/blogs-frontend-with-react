@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddMatches = () => {
   const [hometeam, setHometeam] = useState("");
@@ -8,6 +9,8 @@ const AddMatches = () => {
   const [matchlink, setMatchLink] = useState("");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,10 +24,21 @@ const AddMatches = () => {
         "Content-Type": "application/json",
       },
     });
+
+    if (!res.ok) {
+      setLoading(false);
+      const result = await res.json();
+      setStatus(result.message);
+      return;
+    }
+
     setLoading(false);
     const result = await res.json();
     setStatus(result.message);
     console.log(result);
+    setTimeout(() => {
+      navigate("/livematches");
+    }, 1500);
   };
 
   return (

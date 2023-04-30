@@ -1,15 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {
   const [title, setTitle] = useState("");
   const [blog, setBlog] = useState("");
   const [image, setImage] = useState("");
-  const [loading, setLoading] = useState(false)
-  const [result, setResult] = useState("")
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    setLoading(true)
-    setResult("")
+    setLoading(true);
+    setResult("");
     e.preventDefault();
     const writtenBlog = { blog, title, image };
     const res = await fetch("https://blog-api-kiprono.onrender.com/create", {
@@ -19,9 +22,19 @@ const AddBlog = () => {
         "Content-Type": "application/json",
       },
     });
+
+    if (!res.ok) {
+      setLoading(false);
+      const result = await res.json();
+      setResult(result.message);
+      return;
+    }
+    setLoading(false);
     const result = await res.json();
-    setLoading(false)
-    setResult(result.message)
+    setResult(result.message);
+    setTimeout(() => {
+      navigate("/");
+    }, 1500);
 
     console.log(result);
   };
@@ -35,8 +48,11 @@ const AddBlog = () => {
         <textarea onChange={(e) => setBlog(e.target.value)}></textarea>
         <label>Image</label>
         <input type="text" onChange={(e) => setImage(e.target.value)} />
-        {!loading ? 
-        <button type="submit">Add blog</button> : <button>Adding blog...</button> }
+        {!loading ? (
+          <button type="submit">Add blog</button>
+        ) : (
+          <button>Adding blog...</button>
+        )}
         <div>{result}</div>
       </form>
     </div>
