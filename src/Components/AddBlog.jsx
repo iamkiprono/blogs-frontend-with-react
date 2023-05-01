@@ -11,32 +11,34 @@ const AddBlog = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     setLoading(true);
     setResult("");
-    e.preventDefault();
     const writtenBlog = { blog, title, image };
-    const res = await fetch("https://blog-api-kiprono.onrender.com/create", {
-      method: "POST",
-      body: JSON.stringify(writtenBlog),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
 
-    if (!res.ok) {
-      setLoading(false);
+    try {
+      const res = await fetch("https://blog-api-kiprono.onrender.com/create", {
+        method: "POST",
+        body: JSON.stringify(writtenBlog),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
       const result = await res.json();
-      setResult(result.message);
-      return;
-    }
-    setLoading(false);
-    const result = await res.json();
-    setResult(result.message);
-    setTimeout(() => {
-      navigate("/");
-    }, 1500);
 
-    console.log(result);
+      if (!res.ok) {
+        throw Error(result.message);
+      }
+
+      setResult(result.message);
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } catch (error) {
+      setLoading(false);
+      setResult(error.message);
+    }
   };
   return (
     <div>
