@@ -92,6 +92,16 @@ form button {
   width: 20px;
 }
 
+select{
+  padding: 10px;
+
+  margin: 10px 0;
+}
+label{
+  font-weight: 700;
+  
+}
+
 /* mobile screen */
 
 @media (max-width: 600px) {

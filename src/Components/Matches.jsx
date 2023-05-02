@@ -11,6 +11,20 @@ const Matches = () => {
     console.log(results);
   };
 
+  const deleteMatch = async (id) => {
+    try {
+      const res = await fetch(`https://blog-api-kiprono.onrender.com/live/${id}`,{
+        method: "DELETE"
+      })
+      const result = await res.json()
+      alert(result.message)
+      
+      console.log(result)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     getLiveMatches();
   }, []);
@@ -24,6 +38,7 @@ const Matches = () => {
                 <img src={match.awaylogo} alt="" />
                 <p>{match.awayteam}</p>
                <Link target="_blank" to={match.matchlink}>Watch</Link>
+               <button onClick={()=>deleteMatch(match.id)}>delete</button>
             </div>
         )
     })}

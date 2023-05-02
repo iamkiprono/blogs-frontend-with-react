@@ -59,11 +59,12 @@ const AddMatches = () => {
             <option value="Arsenal">Arsenal</option>
             <option value="Afc Bournemouth">Afc Bournemouth</option>
             <option value="Tottenham Hotspur">Tottenham Hotspur</option>
+            <option value="Chelsea">Chelsea</option>
           </select>
           <label>Home Team logo</label>
           <select onChange={(e) => setHomeLogo(e.target.value)}>
             <option value=""></option>
-            <option value="Arsenal">Arsenal</option>
+            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577419697.png?v=1">Arsenal</option>
             <option value="Afc Bournemouth">Afc Bournemouth</option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577447430.png?v=1">
               Liverpool
@@ -73,6 +74,7 @@ const AddMatches = () => {
           <select onChange={(e) => setAwayLogo(e.target.value)}>
             <option value=""></option>
             <option value="Arsenal">Arsenal</option>
+            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577409120.png?v=1">Chelsea</option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164609952917.png?v=1">
               Tottenham Hotspur
             </option>
