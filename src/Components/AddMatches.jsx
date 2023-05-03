@@ -50,6 +50,7 @@ const AddMatches = () => {
           <select onChange={(e) => setHometeam(e.target.value)}>
             <option value=""></option>
             <option value="Arsenal">Arsenal</option>
+            <option value="Manchester City">Manchester City</option>
             <option value="Afc Bournemouth">Afc Bournemouth</option>
             <option value="Liverpool">Liverpool</option>
           </select>
@@ -58,14 +59,17 @@ const AddMatches = () => {
             <option value=""></option>
             <option value="Arsenal">Arsenal</option>
             <option value="Afc Bournemouth">Afc Bournemouth</option>
+            <option value="Fulham">Fulham</option>
             <option value="Tottenham Hotspur">Tottenham Hotspur</option>
             <option value="Chelsea">Chelsea</option>
+            <option value="West Ham United">West Ham United</option>
           </select>
           <label>Home Team logo</label>
           <select onChange={(e) => setHomeLogo(e.target.value)}>
             <option value=""></option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577419697.png?v=1">Arsenal</option>
             <option value="Afc Bournemouth">Afc Bournemouth</option>
+            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577478031.png?v=1">Manchester City</option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577447430.png?v=1">
               Liverpool
             </option>
@@ -75,8 +79,12 @@ const AddMatches = () => {
             <option value=""></option>
             <option value="Arsenal">Arsenal</option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577409120.png?v=1">Chelsea</option>
+            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/16486909637.png?v=1">Fulham</option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164609952917.png?v=1">
               Tottenham Hotspur
+            </option>
+            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577453830.png?v=1">
+              West Ham United
             </option>
           </select>
           <label htmlFor="">Match Link</label>
