@@ -28,14 +28,12 @@ const AddMatches = () => {
     if (!res.ok) {
       setLoading(false);
       const result = await res.json();
-      setStatus(result.message);
-      return;
+      return setStatus(result.error);
     }
 
     setLoading(false);
     const result = await res.json();
     setStatus(result.message);
-    console.log(result);
     setTimeout(() => {
       navigate("/livematches");
     }, 1500);
@@ -69,10 +67,16 @@ const AddMatches = () => {
           <label>Home Team logo</label>
           <select onChange={(e) => setHomeLogo(e.target.value)}>
             <option value=""></option>
-            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577419697.png?v=1">Arsenal</option>
+            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577419697.png?v=1">
+              Arsenal
+            </option>
             <option value="Afc Bournemouth">Afc Bournemouth</option>
-             <option value="https://ssl.gstatic.com/onebox/media/sports/logos/EKIe0e-ZIphOcfQAwsuEEQ_96x96.png">Brighton Hove Albion</option>
-            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577478031.png?v=1">Manchester City</option>
+            <option value="https://ssl.gstatic.com/onebox/media/sports/logos/EKIe0e-ZIphOcfQAwsuEEQ_96x96.png">
+              Brighton Hove Albion
+            </option>
+            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577478031.png?v=1">
+              Manchester City
+            </option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577447430.png?v=1">
               Liverpool
             </option>
@@ -81,14 +85,18 @@ const AddMatches = () => {
           <select onChange={(e) => setAwayLogo(e.target.value)}>
             <option value=""></option>
             <option value="Arsenal">Arsenal</option>
-           
-            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577409120.png?v=1">Chelsea</option>
-            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/16486909637.png?v=1">Fulham</option>
+
+            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577409120.png?v=1">
+              Chelsea
+            </option>
+            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/16486909637.png?v=1">
+              Fulham
+            </option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164609952917.png?v=1">
               Tottenham Hotspur
             </option>
             <option value="https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_96x96.png">
-            Manchester United
+              Manchester United
             </option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577453830.png?v=1">
               West Ham United

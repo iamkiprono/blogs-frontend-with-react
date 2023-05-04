@@ -10,7 +10,7 @@ const AddBlog = () => {
 
   const navigate = useNavigate();
 
-  // form submit 
+  // form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -25,20 +25,21 @@ const AddBlog = () => {
           "Content-Type": "application/json",
         },
       });
-
       const result = await res.json();
-
       if (!res.ok) {
-        throw Error(result.message);
+        setLoading(false);
+        return setResult(result.error);
       }
+      console.log(res);
 
+      console.log(result);
+      setLoading(false);
       setResult(result.message);
       setTimeout(() => {
         navigate("/");
       }, 2000);
     } catch (error) {
       setLoading(false);
-      setResult(error.message);
     }
   };
   return (
