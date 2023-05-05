@@ -8,14 +8,14 @@ const AddMatches = () => {
   const [awaylogo, setAwayLogo] = useState("");
   const [matchlink, setMatchLink] = useState("");
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(null);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setStatus("");
+    setStatus(null);
     const match = { hometeam, awayteam, homelogo, awaylogo, matchlink };
     const res = await fetch("https://blog-api-kiprono.onrender.com/live", {
       method: "POST",
@@ -110,7 +110,9 @@ const AddMatches = () => {
           ) : (
             <button>Adding match...</button>
           )}
-          {status}
+          {status &&  <div className="error"> {status}</div> }
+         
+         
         </form>
       </div>
     </div>

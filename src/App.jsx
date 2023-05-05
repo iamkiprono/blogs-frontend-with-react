@@ -4,6 +4,8 @@ import Navbar from "./Components/Navbar";
 import AddBlog from "./Components/AddBlog";
 import AddMatches from "./Components/AddMatches";
 import Matches from "./Components/Matches";
+import SignUp from "./Components/SignUp";
+import LogIn from "./Components/Login";
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
           <Route path="/add" element={<AddBlog />} />
           <Route path="/addmatch" element={<AddMatches />} />
           <Route path="/livematches" element={<Matches />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<LogIn />} />
         </Routes>
       </div>
     </Router>

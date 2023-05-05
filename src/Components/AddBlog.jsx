@@ -6,7 +6,7 @@ const AddBlog = () => {
   const [blog, setBlog] = useState("");
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState(null);
 
   const navigate = useNavigate();
 
@@ -43,7 +43,7 @@ const AddBlog = () => {
     }
   };
   return (
-    <div>
+    <div className="addblog">
       <h3>Add blog</h3>
       <form onSubmit={handleSubmit}>
         <label>Blog title</label>
@@ -57,7 +57,7 @@ const AddBlog = () => {
         ) : (
           <button>Adding blog...</button>
         )}
-        <div>{result}</div>
+       {result && <div className="error">{result}</div> } 
       </form>
     </div>
   );
