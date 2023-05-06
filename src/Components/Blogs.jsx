@@ -6,7 +6,7 @@ const Blogs = () => {
   const [loading, setLoading] = useState(false)
   const [result, setResult] = useState("")
 
-  const { data: blogs } = useFetch(
+  const { data: blogs, error } = useFetch(
     "https://blog-api-kiprono.onrender.com/blogs"
   );
   console.log(blogs);
@@ -36,6 +36,7 @@ const Blogs = () => {
       <div className="blog-wrapper">
  
         <div>{result}</div>
+        {error}
         <h2>Blogs</h2>
         {blogs.length === 0
           ? "Loading..."

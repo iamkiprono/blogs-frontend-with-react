@@ -16,27 +16,34 @@ const AddMatches = () => {
     e.preventDefault();
     setLoading(true);
     setStatus(null);
-    const match = { hometeam, awayteam, homelogo, awaylogo, matchlink };
-    const res = await fetch("https://blog-api-kiprono.onrender.com/live", {
-      method: "POST",
-      body: JSON.stringify(match),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (!res.ok) {
+    try {
+      
+      const match = { hometeam, awayteam, homelogo, awaylogo, matchlink };
+      const res = await fetch("https://blog-api-kiprono.onrender.com/live", {
+        method: "POST",
+        body: JSON.stringify(match),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (!res.ok) {
+        setLoading(false);
+        const result = await res.json();
+        return setStatus(result.error);
+      }
+  
       setLoading(false);
       const result = await res.json();
-      return setStatus(result.error);
+      setStatus(result.message);
+      setTimeout(() => {
+        navigate("/livematches");
+      }, 1500);
+    } catch (error) {
+      setLoading(false)
+      setStatus(error.message)
+      
     }
 
-    setLoading(false);
-    const result = await res.json();
-    setStatus(result.message);
-    setTimeout(() => {
-      navigate("/livematches");
-    }, 1500);
   };
 
   return (
