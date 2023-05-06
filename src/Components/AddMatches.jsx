@@ -17,7 +17,6 @@ const AddMatches = () => {
     setLoading(true);
     setStatus(null);
     try {
-      
       const match = { hometeam, awayteam, homelogo, awaylogo, matchlink };
       const res = await fetch("https://blog-api-kiprono.onrender.com/live", {
         method: "POST",
@@ -26,12 +25,13 @@ const AddMatches = () => {
           "Content-Type": "application/json",
         },
       });
+
       if (!res.ok) {
         setLoading(false);
         const result = await res.json();
         return setStatus(result.error);
       }
-  
+
       setLoading(false);
       const result = await res.json();
       setStatus(result.message);
@@ -39,11 +39,9 @@ const AddMatches = () => {
         navigate("/livematches");
       }, 1500);
     } catch (error) {
-      setLoading(false)
-      setStatus(error.message)
-      
+      setLoading(false);
+      setStatus(error.message);
     }
-
   };
 
   return (
@@ -56,19 +54,25 @@ const AddMatches = () => {
             <option value=""></option>
             <option value="Arsenal">Arsenal</option>
             <option value="Brighton Hove Albion">Brighton Hove Albion</option>
-            <option value="Manchester City">Manchester City</option>
             <option value="Afc Bournemouth">Afc Bournemouth</option>
+            <option value="Manchester City">Manchester City</option>
+            <option value="Tottenham Hotspur">Tottenham Hotspur</option>
             <option value="Liverpool">Liverpool</option>
+            <option value="Wolves">Wolves</option>
           </select>
           <label>Away Team</label>
           <select onChange={(e) => setAwayTeam(e.target.value)}>
             <option value=""></option>
             <option value="Arsenal">Arsenal</option>
+            <option value="Aston Villa">Aston Villa</option>
             <option value="Afc Bournemouth">Afc Bournemouth</option>
+            <option value="Brentford">Brentford</option>
+            <option value="Crystal Palace">Crystal Palace</option>
+            <option value="Chelsea">Chelsea</option>
             <option value="Fulham">Fulham</option>
+            <option value="Leeds">Leeds</option>
             <option value="Manchester United">Manchester United</option>
             <option value="Tottenham Hotspur">Tottenham Hotspur</option>
-            <option value="Chelsea">Chelsea</option>
             <option value="West Ham United">West Ham United</option>
           </select>
           <label>Home Team logo</label>
@@ -77,30 +81,50 @@ const AddMatches = () => {
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577419697.png?v=1">
               Arsenal
             </option>
-            <option value="Afc Bournemouth">Afc Bournemouth</option>
+            <option value="https://resources.premierleague.com/premierleague/badges/50/t91.png">
+              Afc Bournemouth
+            </option>
             <option value="https://ssl.gstatic.com/onebox/media/sports/logos/EKIe0e-ZIphOcfQAwsuEEQ_96x96.png">
               Brighton Hove Albion
             </option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577478031.png?v=1">
               Manchester City
             </option>
+            <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164609952917.png?v=1">
+              Tottenham Hotspur
+            </option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577447430.png?v=1">
               Liverpool
+            </option>
+            <option value="https://resources.premierleague.com/premierleague/badges/50/t39.png">
+              Wolves
             </option>
           </select>
           <label>Away Team logo</label>
           <select onChange={(e) => setAwayLogo(e.target.value)}>
             <option value=""></option>
             <option value="Arsenal">Arsenal</option>
+            <option value="https://resources.premierleague.com/premierleague/badges/50/t7.png">
+              Aston Villa
+            </option>
+            <option value="https://resources.premierleague.com/premierleague/badges/50/t94.png">
+              Brentford
+            </option>
 
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164577409120.png?v=1">
               Chelsea
+            </option>
+            <option value="https://resources.premierleague.com/premierleague/badges/50/t31.png">
+              Crystal Palace
             </option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/16486909637.png?v=1">
               Fulham
             </option>
             <option value="https://cfcdn.livesportstv.cc/zqwin007/Image/team/images/164609952917.png?v=1">
               Tottenham Hotspur
+            </option>
+            <option value="https://resources.premierleague.com/premierleague/badges/50/t2.png">
+              Leeds
             </option>
             <option value="https://ssl.gstatic.com/onebox/media/sports/logos/udQ6ns69PctCv143h-GeYw_96x96.png">
               Manchester United
@@ -117,9 +141,7 @@ const AddMatches = () => {
           ) : (
             <button>Adding match...</button>
           )}
-          {status &&  <div className="error"> {status}</div> }
-         
-         
+          {status && <div className="error"> {status}</div>}
         </form>
       </div>
     </div>
