@@ -23,15 +23,15 @@ const Navbar = () => {
           )}
           <NavLink to="/livematches">Live Matches</NavLink>
           {!user && (
-            <div>
+            <>
               <NavLink to="/signup">Sign Up</NavLink>
               <NavLink to="/login">Log In</NavLink>
-            </div>
+            </>
           )}{" "}
           {user && (
             <div className="logout">
               <span>{user.email}</span>
-              <button onClick={handleClick}>Logout</button>
+              <button className="text-black" onClick={handleClick}>Logout</button>
             </div>
           )}
         </div>

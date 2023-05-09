@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 * {
   margin: 0;
   padding: 0;
@@ -97,9 +102,7 @@ form button {
   width: 340px;
   margin: 10px;
 }
-.livematch-card img {
-  width: 20px;
-}
+
 
 select {
   padding: 10px;

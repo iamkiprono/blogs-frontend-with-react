@@ -41,23 +41,23 @@ const Blogs = () => {
       <div className="blog-wrapper">
         <div>{result}</div>
         {error}
-        <h2>Blogs</h2>
+        <h2 className="text-4xl font-bold">Blogs</h2>
         {blogs.length === 0
           ? "Loading..."
           : blogs.map((blog) => {
               return (
                 <div key={blog.id} className="blog">
                   <img src={blog.image} alt="" />
-                  <h3>{blog.title}</h3>
+                  <h3 className="text-xl font-bold">{blog.title}</h3>
                   <p>{blog.blog}</p>
-                  {!loading ? (
+                  {user && !loading ? (
                     <button
                       className="delete-btn"
                       onClick={() => deletePost(blog.id)}
                     >
                       Delete
                     </button>
-                  ) : (
+                  ) : (user &&
                     <button className="deleting-btn">Deleting...</button>
                   )}
                 </div>

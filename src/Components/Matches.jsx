@@ -40,22 +40,33 @@ const Matches = () => {
     getLiveMatches();
   }, []);
   return (
-    <div>
+    <div className=" max-w-7xl m-auto  p-6">
       {!matches.length
         ? "Loading..."
         : matches.map((match) => {
             return (
-              <div className="livematch-card" key={match.id}>
-                <img src={match.homelogo} alt="" />
-                <p>{match.hometeam}</p>
-                <h1>vs</h1>
-                <img src={match.awaylogo} alt="" />
-                <p>{match.awayteam}</p>
-                <Link target="_blank" to={match.matchlink}>
-                  Watch
-                </Link>
+              <div
+                className="text-sm shadow-2xl w-full  items-center my-2 p-4  "
+                key={match.id}
+              >
+                <div className="flex items-center my-2">
+                  <img className="w-6" src={match.homelogo} alt="" />
+                  <p className="ml-2">{match.hometeam}</p>
+                </div>
+                <div className="flex items-center my-2">
+                  <img className="w-6  " src={match.awaylogo} alt="" />
+                  <p className="ml-2">{match.awayteam}</p>
+                </div>
+
+                <Link className="text-purple-950" target="_blank" to={match.matchlink}>Watch</Link>
+
                 {user && user.admin === 1 && (
-                  <button onClick={() => deleteMatch(match.id)}>delete</button>
+                  <button
+                    className="p-2 border-2"
+                    onClick={() => deleteMatch(match.id)}
+                  >
+                    delete
+                  </button>
                 )}
               </div>
             );
