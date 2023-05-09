@@ -12,30 +12,29 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <nav>
-        <div className="logo"> {user && user.admin ? "Admin" : "Not admin"}</div>
+        <div className="logo">{user && user.admin ? "Admin" : "Not admin"}</div>
         <div className="navlinks">
           <NavLink to="/">Blogs</NavLink>
           {user && (
-            <div>
+            <>
               <NavLink to="/addblog">Add Blog</NavLink>
               <NavLink to="/addmatch">Add Matches</NavLink>
-            </div>
+            </>
           )}
-
           <NavLink to="/livematches">Live Matches</NavLink>
           {!user && (
             <div>
               <NavLink to="/signup">Sign Up</NavLink>
               <NavLink to="/login">Log In</NavLink>
             </div>
+          )}{" "}
+          {user && (
+            <div className="logout">
+              <span>{user.email}</span>
+              <button onClick={handleClick}>Logout</button>
+            </div>
           )}
         </div>
-        {user && (
-          <div className="logout">
-            <span>{user.email}</span>
-            <button onClick={handleClick}>Logout</button>
-          </div>
-        )}
       </nav>
     </div>
   );

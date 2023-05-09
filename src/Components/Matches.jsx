@@ -54,7 +54,7 @@ const Matches = () => {
                 <Link target="_blank" to={match.matchlink}>
                   Watch
                 </Link>
-                {user && user.admin && (
+                {user && user.admin === 1 && (
                   <button onClick={() => deleteMatch(match.id)}>delete</button>
                 )}
               </div>
