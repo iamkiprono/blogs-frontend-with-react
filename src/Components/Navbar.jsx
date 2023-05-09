@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <nav>
-        <div className="logo"> {user.admin ? "Admin" : "Not admin"}</div>
+        <div className="logo"> {user && user.admin ? "Admin" : "Not admin"}</div>
         <div className="navlinks">
           <NavLink to="/">Blogs</NavLink>
           {user && (
