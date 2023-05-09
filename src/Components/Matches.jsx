@@ -18,9 +18,15 @@ const Matches = () => {
         `https://blog-api-kiprono.onrender.com/live/${id}`,
         {
           method: "DELETE",
-          'Authorization':`Bearer ${user.token}`,
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
         }
       );
+      if (!res.ok) {
+        const result = await res.json();
+        alert(result.error);
+      }
       const result = await res.json();
       alert(result.message);
 
@@ -48,7 +54,9 @@ const Matches = () => {
                 <Link target="_blank" to={match.matchlink}>
                   Watch
                 </Link>
-                <button onClick={() => deleteMatch(match.id)}>delete</button>
+                {user && user.admin && (
+                  <button onClick={() => deleteMatch(match.id)}>delete</button>
+                )}
               </div>
             );
           })}
