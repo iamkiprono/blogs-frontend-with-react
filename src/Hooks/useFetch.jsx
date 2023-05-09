@@ -8,12 +8,12 @@ const useFetch = (url) => {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      if(!res.ok){
-     return  setError(data.error)
+      if (!res.ok) {
+        return setError(data.error);
       }
       setData(data);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       setError(error.message);
     }
   };

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthContext } from "../Hooks/useAuthContext";
 
 const Matches = () => {
   const [matches, setMatches] = useState([]);
-
+  const { user } = useAuthContext();
   const getLiveMatches = async () => {
     const res = await fetch("https://blog-api-kiprono.onrender.com/live");
     const results = await res.json();
@@ -17,6 +18,7 @@ const Matches = () => {
         `https://blog-api-kiprono.onrender.com/live/${id}`,
         {
           method: "DELETE",
+          'Authorization':`Bearer ${user.token}`,
         }
       );
       const result = await res.json();

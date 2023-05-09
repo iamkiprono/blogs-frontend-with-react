@@ -12,16 +12,21 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <nav>
-        <div className="logo">Admin</div>
+        <div className="logo"> {user.admin ? "Admin" : "Not admin"}</div>
         <div className="navlinks">
           <NavLink to="/">Blogs</NavLink>
-          <NavLink to="/add">Add Blog</NavLink>
-          <NavLink to="/addmatch">Add Matches</NavLink>
+          {user && (
+            <div>
+              <NavLink to="/addblog">Add Blog</NavLink>
+              <NavLink to="/addmatch">Add Matches</NavLink>
+            </div>
+          )}
+
           <NavLink to="/livematches">Live Matches</NavLink>
           {!user && (
             <div>
               <NavLink to="/signup">Sign Up</NavLink>
-              <NavLink to="/login">Log in</NavLink>
+              <NavLink to="/login">Log In</NavLink>
             </div>
           )}
         </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../Hooks/useAuthContext";
 
 const AddBlog = () => {
   const [title, setTitle] = useState("");
@@ -7,6 +8,8 @@ const AddBlog = () => {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
+
+  const { user } = useAuthContext();
 
   const navigate = useNavigate();
 
@@ -22,6 +25,7 @@ const AddBlog = () => {
         method: "POST",
         body: JSON.stringify(writtenBlog),
         headers: {
+          'Authorization':`Bearer ${user.token}`,
           "Content-Type": "application/json",
         },
       });
@@ -57,7 +61,7 @@ const AddBlog = () => {
         ) : (
           <button>Adding blog...</button>
         )}
-       {result && <div className="error">{result}</div> } 
+        {result && <div className="error">{result}</div>}
       </form>
     </div>
   );

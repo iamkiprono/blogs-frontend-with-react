@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Teams from "../Hooks/TeamsData/Teams";
+import { useAuthContext } from "../Hooks/useAuthContext";
 
 const AddMatches = () => {
   const [hometeam, setHometeam] = useState("");
@@ -11,6 +12,7 @@ const AddMatches = () => {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState(null);
 
+  const { user } = useAuthContext();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -19,10 +21,12 @@ const AddMatches = () => {
     setStatus(null);
     try {
       const match = { hometeam, awayteam, homelogo, awaylogo, matchlink };
+      console.log(match);
       const res = await fetch("https://blog-api-kiprono.onrender.com/live", {
         method: "POST",
         body: JSON.stringify(match),
         headers: {
+          'Authorization':`Bearer ${user.token}`,
           "Content-Type": "application/json",
         },
       });
@@ -51,7 +55,11 @@ const AddMatches = () => {
         <h3>Add match</h3>
         <form onSubmit={handleSubmit}>
           <label>Home Team</label>
-          <select onChange={(e) => setHometeam(e.target.value)}>
+          <select
+            onChange={(e) => {
+              setHometeam(e.target.value);
+            }}
+          >
             <option value=""></option>
             {Teams.map((team) => {
               return (
@@ -102,6 +110,7 @@ const AddMatches = () => {
           ) : (
             <button>Adding match...</button>
           )}
+
           {status && <div className="error"> {status}</div>}
         </form>
       </div>
