@@ -57,9 +57,9 @@ const AddBlog = () => {
         <label>Image</label>
         <input type="text" onChange={(e) => setImage(e.target.value)} />
         {!loading ? (
-          <button type="submit">Add blog</button>
+          <button className="border-2 p-2 " type="submit">Add blog</button>
         ) : (
-          <button>Adding blog...</button>
+          <button className="border-2 p-2 ">Adding blog...</button>
         )}
         {result && <div className="error">{result}</div>}
       </form>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import useFetch from "../Hooks/useFetch";
 import { useAuthContext } from "../Hooks/useAuthContext";
+import { Link } from "react-router-dom";
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const Blogs = () => {
   const [loading, setLoading] = useState(false);
@@ -49,7 +51,10 @@ const Blogs = () => {
                 <div key={blog.id} className="blog">
                   <img src={blog.image} alt="" />
                   <h3 className="text-xl font-bold">{blog.title}</h3>
-                  <p>{blog.blog}</p>
+                  <p className="text-sm"><i>{formatDistanceToNow(new Date(blog.datecreated), {addSuffix:true})}</i></p>
+                  <Link className="text-sm" to={`/${blog.id}`}>
+                    <button className="border p-2 mt-4 ">Read more</button>
+                  </Link>
                   {user && !loading ? (
                     <button
                       className="delete-btn"
@@ -57,8 +62,10 @@ const Blogs = () => {
                     >
                       Delete
                     </button>
-                  ) : (user &&
-                    <button className="deleting-btn">Deleting...</button>
+                  ) : (
+                    user && (
+                      <button className="deleting-btn">Deleting...</button>
+                    )
                   )}
                 </div>
               );

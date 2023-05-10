@@ -12,6 +12,7 @@ import Matches from "./Components/Matches";
 import SignUp from "./Components/SignUp";
 import LogIn from "./Components/Login";
 import { useAuthContext } from "./Hooks/useAuthContext";
+import BlogDetails from "./Components/BlogDetails";
 
 const App = () => {
   const { user } = useAuthContext();
@@ -22,6 +23,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Blogs />} />
+          <Route path="/:id" element={<BlogDetails />} />
           <Route path="/addblog" element={!user ? <Navigate to="/login" /> :<AddBlog />} />
           <Route
             path="/addmatch"

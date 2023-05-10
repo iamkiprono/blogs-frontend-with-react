@@ -26,7 +26,7 @@ const AddMatches = () => {
         method: "POST",
         body: JSON.stringify(match),
         headers: {
-          'Authorization':`Bearer ${user.token}`,
+          Authorization: `Bearer ${user.token}`,
           "Content-Type": "application/json",
         },
       });
@@ -56,6 +56,7 @@ const AddMatches = () => {
         <form onSubmit={handleSubmit}>
           <label>Home Team</label>
           <select
+            className="bg-white"
             onChange={(e) => {
               setHometeam(e.target.value);
             }}
@@ -70,7 +71,10 @@ const AddMatches = () => {
             })}
           </select>
           <label>Away Team</label>
-          <select onChange={(e) => setAwayTeam(e.target.value)}>
+          <select
+            className="bg-white"
+            onChange={(e) => setAwayTeam(e.target.value)}
+          >
             <option value=""></option>
             {Teams.map((team) => {
               return (
@@ -81,7 +85,10 @@ const AddMatches = () => {
             })}
           </select>
           <label>Home Team logo</label>
-          <select onChange={(e) => setHomeLogo(e.target.value)}>
+          <select
+            className="bg-white"
+            onChange={(e) => setHomeLogo(e.target.value)}
+          >
             <option value=""></option>
             {Teams.map((team) => {
               return (
@@ -92,7 +99,10 @@ const AddMatches = () => {
             })}
           </select>
           <label>Away Team logo</label>
-          <select onChange={(e) => setAwayLogo(e.target.value)}>
+          <select
+            className="bg-white"
+            onChange={(e) => setAwayLogo(e.target.value)}
+          >
             <option value=""></option>
             {Teams.map((team) => {
               return (
@@ -106,9 +116,11 @@ const AddMatches = () => {
           <input onChange={(e) => setMatchLink(e.target.value)} type="text" />
 
           {!loading ? (
-            <button type="submit">Add match</button>
+            <button className="border-2 p-2 bg-red" type="submit">
+              Add match
+            </button>
           ) : (
-            <button>Adding match...</button>
+            <button className="border-2 p-2 bg-red">Adding match...</button>
           )}
 
           {status && <div className="error"> {status}</div>}

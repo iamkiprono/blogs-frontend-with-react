@@ -83,6 +83,10 @@ const Teams = [
     name: "Real Madrid",
     logo: "https://www.realmadrid.com/StaticFiles/RealMadrid/directo/statics/primera/Rm_mediano.png",
   },
+  {
+    name: "Real Madrid",
+    logo: "https://www.realmadrid.com/StaticFiles/RealMadrid/directo/statics/primera/Rm_mediano.png",
+  },
 
 ];
 

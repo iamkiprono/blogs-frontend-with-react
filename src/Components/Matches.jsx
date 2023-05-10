@@ -58,7 +58,13 @@ const Matches = () => {
                   <p className="ml-2">{match.awayteam}</p>
                 </div>
 
-                <Link className="text-purple-950" target="_blank" to={match.matchlink}>Watch</Link>
+                <Link
+                  className="text-purple-950"
+                  target="_blank"
+                  to={match.matchlink}
+                >
+                  Watch
+                </Link>
 
                 {user && user.admin === 1 && (
                   <button
