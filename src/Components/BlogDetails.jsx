@@ -14,7 +14,7 @@ const BlogDetails = () => {
       {error}
       {blog.map((b) => {
         return (
-          <div key={b.id}>
+          <div className="" key={b.id}>
             <p className="text-sm"><i>{formatDistanceToNow(new Date(b.datecreated), {addSuffix:true})}</i></p>
             <img className="w-96" src={b.image} alt="" />
             <h1 className="text-2xl font-bold">{b.title}</h1>

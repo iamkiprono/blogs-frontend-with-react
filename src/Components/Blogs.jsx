@@ -40,18 +40,21 @@ const Blogs = () => {
 
   return (
     <div className="blogs">
-      <div className="blog-wrapper">
+        <h2 className="text-4xl font-bold text-center">Blogs</h2>
+      
+      <div className="flex flex-wrap justify-center w-100">
         <div>{result}</div>
         {error}
-        <h2 className="text-4xl font-bold">Blogs</h2>
         {blogs.length === 0
           ? "Loading..."
           : blogs.map((blog) => {
               return (
+                
                 <div key={blog.id} className="blog">
+                  
                   <img src={blog.image} alt="" />
                   <h3 className="text-xl font-bold">{blog.title}</h3>
-                  <p className="text-sm"><i>{formatDistanceToNow(new Date(blog.datecreated), {addSuffix:true})}</i></p>
+                  <p className="text-sm my-4"><i>{formatDistanceToNow(new Date(blog.datecreated), {addSuffix:true})}</i></p>
                   <Link className="text-sm" to={`/${blog.id}`}>
                     <button className="border p-2 mt-4 ">Read more</button>
                   </Link>

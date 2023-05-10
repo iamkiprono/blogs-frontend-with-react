@@ -12,8 +12,10 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <nav>
-        <div className="logo">{user && user.admin ? "Admin" : "Not admin"}</div>
-        <div className="navlinks">
+        <div className="border p-2 rounded">
+          {user && user.admin ? user.email : "FullTime 360"}
+        </div>
+        <div className="navlinks ">
           <NavLink to="/">Blogs</NavLink>
           {user && (
             <>
@@ -30,8 +32,9 @@ const Navbar = () => {
           )}{" "}
           {user && (
             <div className="logout">
-              <span>{user.email}</span>
-              <button className="text-black" onClick={handleClick}>Logout</button>
+              <button className="text-black" onClick={handleClick}>
+                Logout
+              </button>
             </div>
           )}
         </div>

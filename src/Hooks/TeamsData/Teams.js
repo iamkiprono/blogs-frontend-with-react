@@ -84,10 +84,13 @@ const Teams = [
     logo: "https://www.realmadrid.com/StaticFiles/RealMadrid/directo/statics/primera/Rm_mediano.png",
   },
   {
-    name: "Real Madrid",
-    logo: "https://www.realmadrid.com/StaticFiles/RealMadrid/directo/statics/primera/Rm_mediano.png",
+    name: "AC Milan",
+    logo: "https://ssl.gstatic.com/onebox/media/sports/logos/VoKsJ6RitaHGhsM62e6AXQ_96x96.png",
   },
-
+  {
+    name: "Inter",
+    logo: "https://ssl.gstatic.com/onebox/media/sports/logos/l2-icwsMhIvsbRw8AwC1yg_96x96.png",
+  },
 ];
 
 export default Teams;
