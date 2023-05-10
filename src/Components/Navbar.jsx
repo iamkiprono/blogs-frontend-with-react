@@ -26,7 +26,7 @@ const Navbar = () => {
           <NavLink to="/livematches">Live Matches</NavLink>
           {!user && (
             <>
-              <NavLink to="/signup">Sign Up</NavLink>
+              {/* <NavLink to="/signup">Sign Up</NavLink> */}
               <NavLink to="/login">Log In</NavLink>
             </>
           )}{" "}
