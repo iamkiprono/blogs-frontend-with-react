@@ -54,7 +54,7 @@ const Blogs = () => {
                   
                   <img src={blog.image} alt="" />
                   <h3 className="text-xl font-bold">{blog.title}</h3>
-                  <p className="text-sm my-4"><i>{formatDistanceToNow(new Date(blog.datecreated), {addSuffix:true})}</i></p>
+                  <p className="text-sm my-4"><i>{formatDistanceToNow(new Date(blog.createdAt || blog.datecreated ), {addSuffix:true})}</i></p>
                   <Link className="text-sm" to={`/${blog._id}`}>
                     <button className="border p-2 mt-4 ">Read more</button>
                   </Link>
