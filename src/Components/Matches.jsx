@@ -66,7 +66,7 @@ const Matches = () => {
                   Watch
                 </Link>
 
-                {user && user.admin === 1 && (
+                {user && user.admin && (
                   <button
                     className="p-2 border-2"
                     onClick={() => deleteMatch(match.id)}
