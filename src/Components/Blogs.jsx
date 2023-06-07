@@ -2,7 +2,7 @@ import { useState } from "react";
 import useFetch from "../Hooks/useFetch";
 import { useAuthContext } from "../Hooks/useAuthContext";
 import { Link } from "react-router-dom";
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const Blogs = () => {
   const [loading, setLoading] = useState(false);
@@ -13,6 +13,8 @@ const Blogs = () => {
   const { data: blogs, error } = useFetch(
     "https://blog-api-kiprono.onrender.com/blogs"
   );
+
+  
   console.log(blogs);
 
   const deletePost = async (id) => {
@@ -40,8 +42,8 @@ const Blogs = () => {
 
   return (
     <div className="blogs">
-        <h2 className="text-4xl font-bold text-center">Blogs</h2>
-      
+      <h2 className="text-4xl font-bold text-center">Blogs</h2>
+
       <div className="flex flex-wrap justify-center w-100">
         <div>{result}</div>
         {error}
@@ -49,12 +51,16 @@ const Blogs = () => {
           ? "Loading..."
           : blogs.map((blog) => {
               return (
-                
                 <div key={blog.id} className="blog">
-                  
                   <img src={blog.image} alt="" />
                   <h3 className="text-xl font-bold">{blog.title}</h3>
-                  <p className="text-sm my-4"><i>{formatDistanceToNow(new Date(blog.datecreated), {addSuffix:true})}</i></p>
+                  <p className="text-sm my-4">
+                    <i>
+                      {formatDistanceToNow(new Date(blog.datecreated), {
+                        addSuffix: true,
+                      })}
+                    </i>
+                  </p>
                   <Link className="text-sm" to={`/${blog.id}`}>
                     <button className="border p-2 mt-4 ">Read more</button>
                   </Link>
