@@ -47,7 +47,7 @@ const Matches = () => {
             return (
               <div
                 className="text-sm shadow-2xl w-full  items-center my-2 p-4  "
-                key={match.id}
+                key={match._id}
               >
                 <div className="flex items-center my-2">
                   <img className="w-6" src={match.homelogo} alt="" />
@@ -66,10 +66,10 @@ const Matches = () => {
                   Watch
                 </Link>
 
-                {user && user.admin === 1 && (
+                {user && user.admin && (
                   <button
                     className="p-2 border-2"
-                    onClick={() => deleteMatch(match.id)}
+                    onClick={() => deleteMatch(match._id)}
                   >
                     delete
                   </button>

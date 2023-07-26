@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../Hooks/useFetch";
-import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -12,16 +12,18 @@ const BlogDetails = () => {
   return (
     <div className="max-w-7xl m-auto  p-6">
       {error}
-      {blog.map((b) => {
-        return (
-          <div className="" key={b.id}>
-            <p className="text-sm"><i>{formatDistanceToNow(new Date(b.datecreated), {addSuffix:true})}</i></p>
-            <img className="w-96" src={b.image} alt="" />
-            <h1 className="text-2xl font-bold">{b.title}</h1>
-            <p className="text-sm">{b.blog}</p>
-          </div>
-        );
-      })}
+      
+      <div className="">
+        <p className="text-sm">
+          <i>
+     
+          </i>
+        </p>
+        <img className="w-96" src={blog.image} alt="" />
+        <h1 className="text-2xl font-bold">{blog.title}</h1>
+        <p className="text-sm">{blog.blog}</p>
+      </div>
+  
     </div>
   );
 };
