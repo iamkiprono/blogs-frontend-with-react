@@ -55,7 +55,7 @@ const Blogs = () => {
                   <h3 className="text-xl font-bold">{blog.title}</h3>
                   <p className="text-sm my-4">
                     <i>
-                      {formatDistanceToNow(new Date(blog.datecreated), {
+                      {formatDistanceToNow(new Date(blog.datecreated  || blog.createdAt), {
                         addSuffix: true,
                       })}
                     </i>
