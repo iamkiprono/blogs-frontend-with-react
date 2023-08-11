@@ -19,6 +19,10 @@ const Teams = [
     name: "Brighton",
     logo: "https://resources.premierleague.com/premierleague/badges/50/t36.png",
   },
+    {
+    name: "Burnley",
+    logo: "https://resources.premierleague.com/premierleague/badges/rb/t90.svg",
+  },
   {
     name: "Chelsea",
     logo: "https://resources.premierleague.com/premierleague/badges/50/t8.png",
